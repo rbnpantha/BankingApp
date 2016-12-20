@@ -3,6 +3,10 @@ package edu.cs544.eafinal.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -128,12 +132,13 @@ public class Main {
 			addTransaction.setAccountNumber(br.readLine());
 			System.out.println("Enter Transaction Amount : ");
 			addTransaction.setTransactionAmount(Integer.parseInt(br.readLine()));
-			System.out.println("Enter Date : ");
-			//addTransaction.setDate(Date.parse(br.readLine()));
-
+			 java.util.Date date = new java.util.Date();
+			 System.out.println("Date in date1 is : "+ date);
+			addTransaction.setDate(date);
 			Transaction addedTransaction = transactionService.addTransaction(addTransaction);
-			System.out.println("New Transaction Added  : " + addedTransaction.getTransactionAmount() + "\t"
-					+ addedTransaction.getDate());
+			System.out.println("New Transaction Added  : " + "Transaction Amount :" + addedTransaction.getTransactionAmount() + "\t"
+					+ "Transaction ID : "+
+					addedTransaction.getId());
 			break;
 		}
 		case 2: {
